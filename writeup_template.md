@@ -98,15 +98,19 @@ print("done")
 
 #### 1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I implemented sliding window search in two ways as was given in the udacity quizes. First way was to search each image by selecting a frame and then extracting all the features for that frame and testing it with our trained model from previous steps. If an image of car was obtained, a rectangle was drawn. The second method was hog subsampling window search in which hog parameters were calculated for a single dimension for the entire image. This method was quite fast and robust and I also used it in the final pipeline. 
 
-![alt text][image3]
+Search and classify 
+![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t4.png)
+
+Hog Subsampling
+![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t5.png)
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+Ultimately I searched on two scales using LUV 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![alt text]( 
 ---
 
 ### Video Implementation
