@@ -140,5 +140,7 @@ Here's an example result showing the heatmap from  frame of video:-
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I used two sliding frames to identify car images in the project video, one was aimed to identify far away vehicles and the other was used for identifying the near ones. My pipeline did not perform well to cover the whole car and was quite jittery. But the pipeline used, robustly identified the cars in video majorly and also there were false positive frames were minimised to a large extent. 
+To make the pipeline more robust, we can store the vehicle locations of previous frames and perform a targeted search around those coordinates only in order to maximise the results. 
+Also we can use Yolo object detection technique which is way more robust than conventional image processing and can identify various other objects and people too. 
 
