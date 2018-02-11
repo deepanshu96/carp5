@@ -110,8 +110,9 @@ Hog Subsampling
 
 Ultimately I searched on two scales using LUV 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text]( 
----
+![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t5.png)
+
+The main step that I used to optimize the performance of classifier was to use hog subsampling with multiple windows and window sizes in order to detect cars that were far and near to our vehicle in the project video. Also I used other steps to remove false positives and multiple rectangular windows formed around vehicles which are mentioned below.
 
 ### Video Implementation
 
