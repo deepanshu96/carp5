@@ -63,11 +63,36 @@ Here is an example using the `LUV` color space and HOG parameters of `orientatio
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I tried various combinations of parameters and the best hog image representation was being given by orientation 9 and pixels_per_cell = (8,8). Also these parameters were mentioned in udacity hog pipeline quiz and I preferred to use them as they were quite robust in the quiz also.
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+Before training the classifier, I preprocessed the image using hog features, color histogram, and spatial binning for each image and combined the features obtained. Also I flipped each image along y-axis in order to generate more data for training the classifier. After that I applied an SVM classifier with linear kernel and obtained a good test set accuracy of '0.9958'. The code for the classifier is given below :-
+
+```
+xtrain = np.vstack((f1,f2)).astype(np.float64)
+ytrain = np.hstack(( (np.ones(len(f1))) , (np.zeros(len(f2))) ))
+print(xtrain.shape)
+print(ytrain.shape)
+
+X_train, X_test, y_train, y_test = train_test_split(xtrain, ytrain, test_size=0.2, random_state=22)
+print("done1")
+
+# Fit a per-column scaler
+X_scaler = StandardScaler().fit(X_train)
+# Apply the scaler to X
+X_train = X_scaler.transform(X_train)
+X_test = X_scaler.transform(X_test)
+
+svc = LinearSVC() 
+t=time.time() 
+svc.fit(X_train, y_train) 
+t2 = time.time()
+print(round(t2-t, 2), 'Seconds to train SVC...')
+print('Test Accuracy = ', round(svc.score(X_test, y_test), 4))
+print("done")
+
+```
 
 ### Sliding Window Search
 
