@@ -30,18 +30,36 @@ You're reading it!
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
-
 I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![alt text][image1]
+![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t1.png)
 
-I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
+I used the udacity quiz hog pipeline function to extract the hog features from the image, moreover I used the LUV color space in order to extract the hog features(I used the L channel to be more precise) as it was giving the most robust result.
+The code pipeline for hog extraction is given below:-
+```
+def get_hog_features(img, orient, pix_per_cell, cell_per_block, 
+                        vis=False, feature_vec=True):
+    # Call with two outputs if vis==True
+    if vis == True:
+        features, hog_image = hog(img, orientations=orient, 
+                                  pixels_per_cell=(pix_per_cell, pix_per_cell),
+                                  cells_per_block=(cell_per_block, cell_per_block), 
+                                  transform_sqrt=True, 
+                                  visualise=vis, feature_vector=feature_vec)
+        return features, hog_image
+    # Otherwise call with one output
+    else:      
+        features = hog(img, orientations=orient, 
+                       pixels_per_cell=(pix_per_cell, pix_per_cell),
+                       cells_per_block=(cell_per_block, cell_per_block), 
+                       transform_sqrt=True, 
+                       visualise=vis, feature_vector=feature_vec)
+        return features
+```
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `LUV` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
-
-![alt text][image2]
+![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t2.png)
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
