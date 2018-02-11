@@ -126,7 +126,7 @@ I recorded the positions of positive detections in each frame of the video.  Fro
 
 Here's an example result showing the heatmap from  frame of video:- 
 
-[!alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t6.png)
+![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t6.png)
 
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
