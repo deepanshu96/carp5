@@ -132,7 +132,22 @@ Here's an example result showing the heatmap from  frame of video:-
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
 ![alt text](https://github.com/deepanshu96/carp5/blob/master/output_images/t7.png)
 
+### Updated
 
+I stored previous 8 frames of the video(heatmap frames) and averaged over them to define the rectangular box around the vehicles. This helped me attain a better window detection and a lot smoother without any jitters. The code for the above procedure is given below:- 
+```
+def rollheat(heatmap):
+    global history
+    ans = np.zeros_like(heatmap)
+    i = 1
+    x = len(history)
+    for hist in history:
+        ans += hist
+    ans+= heatmap
+    
+    ans = ans/x
+    return ans
+```
 
 ---
 
