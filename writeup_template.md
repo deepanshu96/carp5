@@ -117,8 +117,9 @@ The main step that I used to optimize the performance of classifier was to use h
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](https://github.com/deepanshu96/carp5/blob/master/white3.mp4)
+Here's a [link to my video result](https://github.com/deepanshu96/carp5/blob/master/Major.mp4)
 
+[Youtube link](https://www.youtube.com/watch?v=ctIXumr295w)
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
