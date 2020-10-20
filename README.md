@@ -1,5 +1,4 @@
 # Vehicle Detection
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
 
 ## Updated
 - Commited all the changes requested by project reviewer, by taking last 8 frames of the video to define an average region for detecting vehicles, also the rectangular boxes are covering the whole vehicle now and are smooth throughout the video. Find all the required files in updated links below :-
